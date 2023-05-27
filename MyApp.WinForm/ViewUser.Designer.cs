@@ -44,17 +44,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(27, 30);
+            label1.Location = new System.Drawing.Point(11, 9);
             label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(128, 29);
             label1.TabIndex = 0;
             label1.Text = "View User";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(29, 94);
+            label2.Location = new System.Drawing.Point(95, 88);
             label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(78, 20);
@@ -64,7 +65,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(29, 141);
+            label3.Location = new System.Drawing.Point(95, 135);
             label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(70, 20);
@@ -74,7 +75,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(29, 187);
+            label4.Location = new System.Drawing.Point(95, 181);
             label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(67, 20);
@@ -84,7 +85,7 @@
             // lblForename
             // 
             lblForename.AutoSize = true;
-            lblForename.Location = new System.Drawing.Point(138, 94);
+            lblForename.Location = new System.Drawing.Point(279, 88);
             lblForename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblForename.Name = "lblForename";
             lblForename.Size = new System.Drawing.Size(96, 20);
@@ -94,7 +95,7 @@
             // lblSurname
             // 
             lblSurname.AutoSize = true;
-            lblSurname.Location = new System.Drawing.Point(138, 141);
+            lblSurname.Location = new System.Drawing.Point(279, 135);
             lblSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblSurname.Name = "lblSurname";
             lblSurname.Size = new System.Drawing.Size(88, 20);
@@ -104,7 +105,7 @@
             // lblIsActive
             // 
             lblIsActive.AutoSize = true;
-            lblIsActive.Location = new System.Drawing.Point(138, 187);
+            lblIsActive.Location = new System.Drawing.Point(279, 181);
             lblIsActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblIsActive.Name = "lblIsActive";
             lblIsActive.Size = new System.Drawing.Size(79, 20);
@@ -113,8 +114,8 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new System.Drawing.Point(370, 274);
-            btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btnBack.Location = new System.Drawing.Point(365, 288);
+            btnBack.Margin = new System.Windows.Forms.Padding(2);
             btnBack.Name = "btnBack";
             btnBack.Size = new System.Drawing.Size(106, 54);
             btnBack.TabIndex = 7;
@@ -125,7 +126,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(29, 226);
+            label5.Location = new System.Drawing.Point(95, 220);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(97, 20);
             label5.TabIndex = 8;
@@ -134,7 +135,7 @@
             // lblDOB
             // 
             lblDOB.AutoSize = true;
-            lblDOB.Location = new System.Drawing.Point(138, 226);
+            lblDOB.Location = new System.Drawing.Point(279, 220);
             lblDOB.Name = "lblDOB";
             lblDOB.Size = new System.Drawing.Size(113, 20);
             lblDOB.TabIndex = 9;
@@ -144,7 +145,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(487, 339);
+            ClientSize = new System.Drawing.Size(482, 353);
             Controls.Add(lblDOB);
             Controls.Add(label5);
             Controls.Add(btnBack);
@@ -155,7 +156,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "ViewUser";
             Text = "ViewUser";
             Load += ViewUser_Load;

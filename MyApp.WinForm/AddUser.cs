@@ -44,9 +44,9 @@ namespace MyApp.WinForm
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             // add all field values to a list for checking
-            List<string> newUserParameters = new List<string> 
-            { 
-                txtIsActive.Text, txtDateOfBirth.Text, txtForename.Text, txtSurname.Text 
+            List<string> newUserParameters = new List<string>
+            {
+                txtIsActive.Text, txtDateOfBirth.Text, txtForename.Text, txtSurname.Text
             };
 
             // check if any fields are empty
@@ -54,7 +54,7 @@ namespace MyApp.WinForm
             {
                 allFieldsComplete = true;
             }
-            else 
+            else
             {
                 handleValidationError(sender, "Empty Fields");
             }
@@ -86,13 +86,14 @@ namespace MyApp.WinForm
             // declare regex
             string normalChars = @"[^a-zA-Z0-9]";
             Regex regex = new Regex(normalChars);
-            
+
             // check forename
-            if (!regex.IsMatch(txtForename.Text) && txtForename.Text.Length <= 25) { // evaluates to true if special chars are present and the length of the string is less than 50 chars
+            if (!regex.IsMatch(txtForename.Text) && txtForename.Text.Length <= 25)
+            { // evaluates to true if special chars are present and the length of the string is less than 50 chars
                 forename = txtForename.Text;
-                forenameChecked = true; 
+                forenameChecked = true;
             }
-            else 
+            else
             {
                 handleValidationError(sender, "Names cannot contain special characters or be longer than 25 characters");
             }
@@ -111,7 +112,7 @@ namespace MyApp.WinForm
             if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
             {
                 User newUser = new User()
-                {   
+                {
                     DateOfBirth = dob,
                     Surname = surname,
                     Forename = forename,
@@ -119,11 +120,11 @@ namespace MyApp.WinForm
                 };
 
                 // Add user to database (Ask about ServiceFactories, this took WAY too long to find)
-                ServiceFactory.UserService.Create(newUser); 
+                ServiceFactory.UserService.Create(newUser);
 
                 // Show that the new user has been added
                 MessageBox.Show(newUser.getString(), "New User Added");
-              }
+            }
         }
 
         // Override the closing event to show the Main form again

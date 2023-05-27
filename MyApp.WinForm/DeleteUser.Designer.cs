@@ -45,17 +45,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(27, 30);
+            label1.Location = new System.Drawing.Point(11, 9);
             label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(382, 29);
+            label1.Size = new System.Drawing.Size(146, 29);
             label1.TabIndex = 0;
-            label1.Text = "Do you want to Delete this User?";
+            label1.Text = "Delete User";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(29, 94);
+            label2.Location = new System.Drawing.Point(92, 80);
             label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(78, 20);
@@ -65,7 +65,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(29, 141);
+            label3.Location = new System.Drawing.Point(92, 127);
             label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(70, 20);
@@ -75,7 +75,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(29, 187);
+            label4.Location = new System.Drawing.Point(92, 173);
             label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(67, 20);
@@ -85,7 +85,7 @@
             // lblForename
             // 
             lblForename.AutoSize = true;
-            lblForename.Location = new System.Drawing.Point(138, 94);
+            lblForename.Location = new System.Drawing.Point(254, 80);
             lblForename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblForename.Name = "lblForename";
             lblForename.Size = new System.Drawing.Size(96, 20);
@@ -95,7 +95,7 @@
             // lblSurname
             // 
             lblSurname.AutoSize = true;
-            lblSurname.Location = new System.Drawing.Point(138, 141);
+            lblSurname.Location = new System.Drawing.Point(254, 127);
             lblSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblSurname.Name = "lblSurname";
             lblSurname.Size = new System.Drawing.Size(88, 20);
@@ -105,7 +105,7 @@
             // lblIsActive
             // 
             lblIsActive.AutoSize = true;
-            lblIsActive.Location = new System.Drawing.Point(138, 187);
+            lblIsActive.Location = new System.Drawing.Point(254, 173);
             lblIsActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblIsActive.Name = "lblIsActive";
             lblIsActive.Size = new System.Drawing.Size(79, 20);
@@ -126,7 +126,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(29, 226);
+            label5.Location = new System.Drawing.Point(92, 212);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(97, 20);
             label5.TabIndex = 8;
@@ -135,7 +135,7 @@
             // lblDOB
             // 
             lblDOB.AutoSize = true;
-            lblDOB.Location = new System.Drawing.Point(138, 226);
+            lblDOB.Location = new System.Drawing.Point(254, 212);
             lblDOB.Name = "lblDOB";
             lblDOB.Size = new System.Drawing.Size(113, 20);
             lblDOB.TabIndex = 9;
@@ -143,7 +143,7 @@
             // 
             // btnDeleteUser
             // 
-            btnDeleteUser.Location = new System.Drawing.Point(29, 274);
+            btnDeleteUser.Location = new System.Drawing.Point(11, 274);
             btnDeleteUser.Margin = new System.Windows.Forms.Padding(2);
             btnDeleteUser.Name = "btnDeleteUser";
             btnDeleteUser.Size = new System.Drawing.Size(127, 54);

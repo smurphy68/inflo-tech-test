@@ -12,7 +12,7 @@ namespace MyApp.WinForm
         protected readonly IServiceFactory ServiceFactory;
 
         // This form relies upon the DataAccess in order to work
-        public Main(IServiceFactory serviceFactory) 
+        public Main(IServiceFactory serviceFactory)
         {
             ServiceFactory = serviceFactory;
 
@@ -61,7 +61,7 @@ namespace MyApp.WinForm
             )).ToArray());
         }
 
-        
+
 
         // Get all users with no filtering
         private void btnAllUsers_Click(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace MyApp.WinForm
             LoadListView(activeUsers);
         }
 
-       // Get the users and filter by NonActive
+        // Get the users and filter by NonActive
         private void btnNonActiveUsers_Click(object sender, EventArgs e)
         {
             // Get all users where the user.IsActive == false;
@@ -106,30 +106,24 @@ namespace MyApp.WinForm
 
                 // Show the new form
                 viewUser.Show();
-
-                // Hide this form
-                this.Hide();
             }
         }
 
         // Load a form that allows you to create a new user
         private void btnAdd_Click(object sender, EventArgs e)
         {
-                // Create new form
-                var addUser = new AddUser(this, ServiceFactory);
+            // Create new form
+            var addUser = new AddUser(this, ServiceFactory);
 
-                // Show the new form
-                addUser.Show();
-
-                // Hide this form
-                this.Hide();
+            // Show the new form
+            addUser.Show();
         }
 
         // Load a form that allows you to edit a selected user from the list
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lstUsers.SelectedItems.Count > 0)
-            {    
+            {
                 // Get the user id from the selected item in the list view
                 var userId = int.Parse(lstUsers.SelectedItems[0].Text);
 
@@ -139,8 +133,6 @@ namespace MyApp.WinForm
                 // Show the new form
                 editUser.Show();
 
-                // Hide this form
-                this.Hide();
             }
         }
 
@@ -155,6 +147,11 @@ namespace MyApp.WinForm
                 deleteUser.Show();
 
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

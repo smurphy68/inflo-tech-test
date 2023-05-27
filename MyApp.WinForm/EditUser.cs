@@ -132,9 +132,9 @@ namespace MyApp.WinForm
                 user.DateOfBirth = dob;
                 user.Forename = forename;
                 user.IsActive = isActiveValue;
-                
 
-                // Add user to database (Ask about ServiceFactories, this took WAY too long to find)
+
+                // Add user to database
                 ServiceFactory.UserService.Update(user);
 
                 // Show that the new user has been added

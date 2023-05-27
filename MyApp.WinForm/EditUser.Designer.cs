@@ -45,7 +45,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(27, 30);
+            label1.Location = new System.Drawing.Point(9, 9);
             label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(117, 29);
@@ -84,7 +84,7 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new System.Drawing.Point(370, 274);
+            btnBack.Location = new System.Drawing.Point(365, 288);
             btnBack.Margin = new System.Windows.Forms.Padding(2);
             btnBack.Name = "btnBack";
             btnBack.Size = new System.Drawing.Size(106, 54);
@@ -106,33 +106,33 @@
             // 
             txtForename.Location = new System.Drawing.Point(167, 94);
             txtForename.Name = "txtForename";
-            txtForename.Size = new System.Drawing.Size(125, 27);
+            txtForename.Size = new System.Drawing.Size(304, 27);
             txtForename.TabIndex = 9;
             // 
             // txtIsActive
             // 
             txtIsActive.Location = new System.Drawing.Point(167, 182);
             txtIsActive.Name = "txtIsActive";
-            txtIsActive.Size = new System.Drawing.Size(125, 27);
+            txtIsActive.Size = new System.Drawing.Size(304, 27);
             txtIsActive.TabIndex = 10;
             // 
             // txtDateOfBirth
             // 
             txtDateOfBirth.Location = new System.Drawing.Point(167, 226);
             txtDateOfBirth.Name = "txtDateOfBirth";
-            txtDateOfBirth.Size = new System.Drawing.Size(125, 27);
+            txtDateOfBirth.Size = new System.Drawing.Size(303, 27);
             txtDateOfBirth.TabIndex = 11;
             // 
             // txtSurname
             // 
             txtSurname.Location = new System.Drawing.Point(167, 138);
             txtSurname.Name = "txtSurname";
-            txtSurname.Size = new System.Drawing.Size(125, 27);
+            txtSurname.Size = new System.Drawing.Size(304, 27);
             txtSurname.TabIndex = 12;
             // 
             // btnEditUser
             // 
-            btnEditUser.Location = new System.Drawing.Point(260, 274);
+            btnEditUser.Location = new System.Drawing.Point(11, 288);
             btnEditUser.Margin = new System.Windows.Forms.Padding(2);
             btnEditUser.Name = "btnEditUser";
             btnEditUser.Size = new System.Drawing.Size(106, 54);
@@ -145,7 +145,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(487, 339);
+            ClientSize = new System.Drawing.Size(482, 353);
             Controls.Add(btnEditUser);
             Controls.Add(txtSurname);
             Controls.Add(txtDateOfBirth);

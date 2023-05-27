@@ -26,7 +26,7 @@ namespace MyApp.WinForm
             // Get the user by the ID
             var user = ServiceFactory.UserService.GetById(UserId);
 
-            if (user != null) // If we have a user then show their details
+            if (user != null)
             {
                 lblForename.Text = user.Forename;
                 lblSurname.Text = user.Surname;
@@ -46,6 +46,11 @@ namespace MyApp.WinForm
         {
             base.OnFormClosing(e);
             Main.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

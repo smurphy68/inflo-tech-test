@@ -28,201 +28,212 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.lstUsers = new System.Windows.Forms.ListView();
-            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Forename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.IsActive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnActiveUsers = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnNonActiveUsers = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAllUsers = new System.Windows.Forms.Button();
-            this.btnView = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            lstUsers = new System.Windows.Forms.ListView();
+            Id = new System.Windows.Forms.ColumnHeader();
+            Forename = new System.Windows.Forms.ColumnHeader();
+            Surname = new System.Windows.Forms.ColumnHeader();
+            IsActive = new System.Windows.Forms.ColumnHeader();
+            label2 = new System.Windows.Forms.Label();
+            panel1 = new System.Windows.Forms.Panel();
+            btnAllUsers = new System.Windows.Forms.Button();
+            btnNonActiveUsers = new System.Windows.Forms.Button();
+            btnActiveUsers = new System.Windows.Forms.Button();
+            panel2 = new System.Windows.Forms.Panel();
+            btnView = new System.Windows.Forms.Button();
+            btnDelete = new System.Windows.Forms.Button();
+            btnEdit = new System.Windows.Forms.Button();
+            btnAdd = new System.Windows.Forms.Button();
+            label3 = new System.Windows.Forms.Label();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 46);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "User List";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(19, 21);
+            label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(113, 29);
+            label1.TabIndex = 0;
+            label1.Text = "User List";
             // 
             // lstUsers
             // 
-            this.lstUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Id,
-            this.Forename,
-            this.Surname,
-            this.IsActive});
-            this.lstUsers.Location = new System.Drawing.Point(37, 84);
-            this.lstUsers.Name = "lstUsers";
-            this.lstUsers.Size = new System.Drawing.Size(1207, 727);
-            this.lstUsers.TabIndex = 2;
-            this.lstUsers.UseCompatibleStateImageBehavior = false;
-            this.lstUsers.View = System.Windows.Forms.View.Details;
+            lstUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { Id, Forename, Surname, IsActive });
+            lstUsers.Location = new System.Drawing.Point(25, 67);
+            lstUsers.Margin = new System.Windows.Forms.Padding(2);
+            lstUsers.MinimumSize = new System.Drawing.Size(806, 582);
+            lstUsers.Name = "lstUsers";
+            lstUsers.Size = new System.Drawing.Size(806, 582);
+            lstUsers.TabIndex = 2;
+            lstUsers.UseCompatibleStateImageBehavior = false;
+            lstUsers.View = System.Windows.Forms.View.Details;
             // 
             // Id
             // 
-            this.Id.Text = "Id";
-            this.Id.Width = 162;
+            Id.Text = "Id";
+            Id.Width = 162;
             // 
             // Forename
             // 
-            this.Forename.Text = "Forename";
-            this.Forename.Width = 412;
+            Forename.Text = "Forename";
+            Forename.Width = 412;
             // 
             // Surname
             // 
-            this.Surname.Text = "Surname";
-            this.Surname.Width = 456;
+            Surname.Text = "Surname";
+            Surname.Width = 456;
             // 
             // IsActive
             // 
-            this.IsActive.Text = "Is Active";
-            this.IsActive.Width = 164;
+            IsActive.Text = "Is Active";
+            IsActive.Width = 164;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1454, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 46);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Filters";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(974, 21);
+            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(82, 29);
+            label2.TabIndex = 3;
+            label2.Text = "Filters";
+            label2.Click += label2_Click;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnAllUsers);
-            this.panel1.Controls.Add(this.btnNonActiveUsers);
-            this.panel1.Controls.Add(this.btnActiveUsers);
-            this.panel1.Location = new System.Drawing.Point(1319, 84);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 250);
-            this.panel1.TabIndex = 4;
-            // 
-            // btnActiveUsers
-            // 
-            this.btnActiveUsers.Location = new System.Drawing.Point(31, 98);
-            this.btnActiveUsers.Name = "btnActiveUsers";
-            this.btnActiveUsers.Size = new System.Drawing.Size(359, 51);
-            this.btnActiveUsers.TabIndex = 0;
-            this.btnActiveUsers.Text = "Active Users";
-            this.btnActiveUsers.UseVisualStyleBackColor = true;
-            this.btnActiveUsers.Click += new System.EventHandler(this.btnActiveUsers_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnView);
-            this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Controls.Add(this.btnEdit);
-            this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(1319, 438);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(420, 373);
-            this.panel2.TabIndex = 6;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(31, 121);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(359, 51);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1454, 380);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 46);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Actions";
-            // 
-            // btnNonActiveUsers
-            // 
-            this.btnNonActiveUsers.Location = new System.Drawing.Point(31, 176);
-            this.btnNonActiveUsers.Name = "btnNonActiveUsers";
-            this.btnNonActiveUsers.Size = new System.Drawing.Size(359, 51);
-            this.btnNonActiveUsers.TabIndex = 1;
-            this.btnNonActiveUsers.Text = "Non Active";
-            this.btnNonActiveUsers.UseVisualStyleBackColor = true;
-            this.btnNonActiveUsers.Click += new System.EventHandler(this.btnNonActiveUsers_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(28, 202);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(359, 51);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(31, 282);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(359, 51);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            panel1.Controls.Add(btnAllUsers);
+            panel1.Controls.Add(btnNonActiveUsers);
+            panel1.Controls.Add(btnActiveUsers);
+            panel1.Location = new System.Drawing.Point(879, 67);
+            panel1.Margin = new System.Windows.Forms.Padding(2);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(280, 200);
+            panel1.TabIndex = 4;
             // 
             // btnAllUsers
             // 
-            this.btnAllUsers.Location = new System.Drawing.Point(31, 27);
-            this.btnAllUsers.Name = "btnAllUsers";
-            this.btnAllUsers.Size = new System.Drawing.Size(359, 51);
-            this.btnAllUsers.TabIndex = 2;
-            this.btnAllUsers.Text = "All Users";
-            this.btnAllUsers.UseVisualStyleBackColor = true;
-            this.btnAllUsers.Click += new System.EventHandler(this.btnAllUsers_Click);
+            btnAllUsers.Location = new System.Drawing.Point(21, 22);
+            btnAllUsers.Margin = new System.Windows.Forms.Padding(2);
+            btnAllUsers.Name = "btnAllUsers";
+            btnAllUsers.Size = new System.Drawing.Size(239, 41);
+            btnAllUsers.TabIndex = 2;
+            btnAllUsers.Text = "All Users";
+            btnAllUsers.UseVisualStyleBackColor = true;
+            btnAllUsers.Click += btnAllUsers_Click;
+            // 
+            // btnNonActiveUsers
+            // 
+            btnNonActiveUsers.Location = new System.Drawing.Point(21, 141);
+            btnNonActiveUsers.Margin = new System.Windows.Forms.Padding(2);
+            btnNonActiveUsers.Name = "btnNonActiveUsers";
+            btnNonActiveUsers.Size = new System.Drawing.Size(239, 41);
+            btnNonActiveUsers.TabIndex = 1;
+            btnNonActiveUsers.Text = "Non Active";
+            btnNonActiveUsers.UseVisualStyleBackColor = true;
+            btnNonActiveUsers.Click += btnNonActiveUsers_Click;
+            // 
+            // btnActiveUsers
+            // 
+            btnActiveUsers.Location = new System.Drawing.Point(21, 78);
+            btnActiveUsers.Margin = new System.Windows.Forms.Padding(2);
+            btnActiveUsers.Name = "btnActiveUsers";
+            btnActiveUsers.Size = new System.Drawing.Size(239, 41);
+            btnActiveUsers.TabIndex = 0;
+            btnActiveUsers.Text = "Active Users";
+            btnActiveUsers.UseVisualStyleBackColor = true;
+            btnActiveUsers.Click += btnActiveUsers_Click;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnView);
+            panel2.Controls.Add(btnDelete);
+            panel2.Controls.Add(btnEdit);
+            panel2.Controls.Add(btnAdd);
+            panel2.Location = new System.Drawing.Point(879, 350);
+            panel2.Margin = new System.Windows.Forms.Padding(2);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(280, 298);
+            panel2.TabIndex = 6;
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(28, 40);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(359, 51);
-            this.btnView.TabIndex = 3;
-            this.btnView.Text = "View";
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            btnView.Location = new System.Drawing.Point(19, 32);
+            btnView.Margin = new System.Windows.Forms.Padding(2);
+            btnView.Name = "btnView";
+            btnView.Size = new System.Drawing.Size(239, 41);
+            btnView.TabIndex = 3;
+            btnView.Text = "View";
+            btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click;
             // 
-            // Form1
+            // btnDelete
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1774, 847);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstUsers);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            btnDelete.Location = new System.Drawing.Point(21, 226);
+            btnDelete.Margin = new System.Windows.Forms.Padding(2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new System.Drawing.Size(239, 41);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new System.Drawing.Point(19, 162);
+            btnEdit.Margin = new System.Windows.Forms.Padding(2);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new System.Drawing.Size(239, 41);
+            btnEdit.TabIndex = 1;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new System.Drawing.Point(21, 97);
+            btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new System.Drawing.Size(239, 41);
+            btnAdd.TabIndex = 0;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label3.Location = new System.Drawing.Point(969, 304);
+            label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(97, 29);
+            label3.TabIndex = 5;
+            label3.Text = "Actions";
+            // 
+            // Main
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1233, 678);
+            Controls.Add(panel2);
+            Controls.Add(label3);
+            Controls.Add(panel1);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(lstUsers);
+            Margin = new System.Windows.Forms.Padding(2);
+            Name = "Main";
+            Text = "Inflo Tech Test - Simon Murphy";
+            Load += Form1_Load;
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
