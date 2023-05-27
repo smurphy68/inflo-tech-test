@@ -4,6 +4,7 @@ using MyApp.Services.Factories.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using MyApp.Models;
 
 namespace MyApp.WinForm
 {
@@ -12,6 +13,14 @@ namespace MyApp.WinForm
         protected readonly int UserId;
         protected readonly Main Main;
         protected readonly IServiceFactory ServiceFactory;
+
+        // declare validation variables
+        bool allFieldsComplete, isActiveChecked, dobChecked, forenameChecked, surnameChecked;
+
+        // declare variables for creating new user
+        DateTime dob;
+        bool isActiveValue;
+        string forename, surname;
 
         // This form relies upon the 'Main', the DataAccess, and the UserId in order to work
         public AddUser(Main main, IServiceFactory serviceFactory /*, int userId*/)
@@ -22,22 +31,6 @@ namespace MyApp.WinForm
 
             InitializeComponent();
         }
-
-        /* [START] Section commented out, template taken from View User */
-
-        // Load the user for the display
-        //private void ViewUser_Load(object sender, System.EventArgs e)
-        //{
-        //    // Get the user by the ID
-        //    var user = ServiceFactory.UserService.GetById(UserId);
-
-        //    if (user != null) // If we have a user then show their details
-        //    {
-
-        //    }
-        //}
-
-        /* [END] Section commented out, template taken from View User */
 
         // A back button to go back to the main list view
         private void btnBack_Click(object sender, EventArgs e)
@@ -50,21 +43,16 @@ namespace MyApp.WinForm
         }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            // declare validation variables
-            bool allFieldsComplete, isActiveChecked, dobChecked, forenameChecked, surnameChecked = false;
-
-            // declare variables for creting new user
-            DateTime dob;
-            bool isActive;
-            string forename, surname;
-
             // add all field values to a list for checking
-            List<string> newUserParameters = new List<string> { txtIsActive.Text, txtDateOfBirth.Text, txtForename.Text, txtSurname.Text };
+            List<string> newUserParameters = new List<string> 
+            { 
+                txtIsActive.Text, txtDateOfBirth.Text, txtForename.Text, txtSurname.Text 
+            };
 
             // check if any fields are empty
             if (newUserParameters.All(i => i != ""))
             {
-                allFieldsComplete = true; // first check complete
+                allFieldsComplete = true;
             }
             else 
             {
@@ -75,7 +63,7 @@ namespace MyApp.WinForm
             if (txtIsActive.Text.ToLower() == "yes" || txtIsActive.Text.ToLower() == "no")
             {
                 isActiveChecked = true;
-                isActive = (txtIsActive.Text.ToLower() == "yes") /*? true : false*/;
+                isActiveValue = (txtIsActive.Text.ToLower() == "yes") /*? true : false*/;
 
             }
             else
@@ -99,10 +87,10 @@ namespace MyApp.WinForm
             string normalChars = @"[^a-zA-Z0-9]";
             Regex regex = new Regex(normalChars);
             
-
             // check forename
             if (!regex.IsMatch(txtForename.Text) && txtForename.Text.Length <= 25) { // evaluates to true if special chars are present and the length of the string is less than 50 chars
                 forename = txtForename.Text;
+                forenameChecked = true; 
             }
             else 
             {
@@ -112,13 +100,30 @@ namespace MyApp.WinForm
             // check surname
             if (!regex.IsMatch(txtSurname.Text) && txtSurname.Text.Length <= 25)
             { // evaluates to true if special chars are present and the length of the string is less than 50 chars
-                surname = txtForename.Text;
+                surname = txtSurname.Text;
+                surnameChecked = true;
             }
             else
             {
                 handleValidationError(sender, "Names cannot contain special characters  or be longer than 25 characters");
             }
 
+            if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
+            {
+                User newUser = new User()
+                {
+                    DateOfBirth = dob,
+                    Surname = surname,
+                    Forename = forename,
+                    IsActive = isActiveValue
+                };
+
+                // TODO: implement add new user
+
+                // Show that the new user has been added
+                MessageBox.Show(newUser.getString(), "New User Added");
+
+              }
 
         }
 

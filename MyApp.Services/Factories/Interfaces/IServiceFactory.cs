@@ -1,4 +1,5 @@
-﻿using MyApp.Services.Domain.Interfaces;
+﻿using MyApp.Models;
+using MyApp.Services.Domain.Interfaces;
 
 namespace MyApp.Services.Factories.Interfaces
 {
@@ -6,4 +7,6 @@ namespace MyApp.Services.Factories.Interfaces
     {
         IUserService UserService { get; }
     }
+
+
 }
