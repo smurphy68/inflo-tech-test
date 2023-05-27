@@ -111,14 +111,15 @@ namespace MyApp.WinForm
             if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
             {
                 User newUser = new User()
-                {
+                {   
                     DateOfBirth = dob,
                     Surname = surname,
                     Forename = forename,
                     IsActive = isActiveValue
                 };
 
-                // TODO: implement add new user
+                // Add user to database (Ask about ServiceFactories, this took WAY too long to find)
+                ServiceFactory.UserService.Create(newUser); 
 
                 // Show that the new user has been added
                 MessageBox.Show(newUser.getString(), "New User Added");
