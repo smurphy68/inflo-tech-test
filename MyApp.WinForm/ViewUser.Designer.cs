@@ -28,109 +28,139 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblForename = new System.Windows.Forms.Label();
-            this.lblSurname = new System.Windows.Forms.Label();
-            this.lblIsActive = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            lblForename = new System.Windows.Forms.Label();
+            lblSurname = new System.Windows.Forms.Label();
+            lblIsActive = new System.Windows.Forms.Label();
+            btnBack = new System.Windows.Forms.Button();
+            label5 = new System.Windows.Forms.Label();
+            lblDOB = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 46);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "View User";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(27, 30);
+            label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(128, 29);
+            label1.TabIndex = 0;
+            label1.Text = "View User";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Forename:";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(29, 94);
+            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(78, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Forename:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Surname:";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(29, 141);
+            label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(70, 20);
+            label3.TabIndex = 2;
+            label3.Text = "Surname:";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 234);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 25);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Is Active:";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(29, 187);
+            label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(67, 20);
+            label4.TabIndex = 3;
+            label4.Text = "Is Active:";
             // 
             // lblForename
             // 
-            this.lblForename.AutoSize = true;
-            this.lblForename.Location = new System.Drawing.Point(177, 118);
-            this.lblForename.Name = "lblForename";
-            this.lblForename.Size = new System.Drawing.Size(143, 25);
-            this.lblForename.TabIndex = 4;
-            this.lblForename.Text = "[FORENAME]";
+            lblForename.AutoSize = true;
+            lblForename.Location = new System.Drawing.Point(138, 94);
+            lblForename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblForename.Name = "lblForename";
+            lblForename.Size = new System.Drawing.Size(96, 20);
+            lblForename.TabIndex = 4;
+            lblForename.Text = "[FORENAME]";
             // 
             // lblSurname
             // 
-            this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(177, 176);
-            this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(129, 25);
-            this.lblSurname.TabIndex = 5;
-            this.lblSurname.Text = "[SURNAME]";
+            lblSurname.AutoSize = true;
+            lblSurname.Location = new System.Drawing.Point(138, 141);
+            lblSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblSurname.Name = "lblSurname";
+            lblSurname.Size = new System.Drawing.Size(88, 20);
+            lblSurname.TabIndex = 5;
+            lblSurname.Text = "[SURNAME]";
             // 
             // lblIsActive
             // 
-            this.lblIsActive.AutoSize = true;
-            this.lblIsActive.Location = new System.Drawing.Point(177, 234);
-            this.lblIsActive.Name = "lblIsActive";
-            this.lblIsActive.Size = new System.Drawing.Size(118, 25);
-            this.lblIsActive.TabIndex = 6;
-            this.lblIsActive.Text = "[ISACTIVE]";
+            lblIsActive.AutoSize = true;
+            lblIsActive.Location = new System.Drawing.Point(138, 187);
+            lblIsActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblIsActive.Name = "lblIsActive";
+            lblIsActive.Size = new System.Drawing.Size(79, 20);
+            lblIsActive.TabIndex = 6;
+            lblIsActive.Text = "[ISACTIVE]";
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(559, 262);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(159, 67);
-            this.btnBack.TabIndex = 7;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            btnBack.Location = new System.Drawing.Point(370, 274);
+            btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new System.Drawing.Size(106, 54);
+            btnBack.TabIndex = 7;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(29, 226);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(97, 20);
+            label5.TabIndex = 8;
+            label5.Text = "Date of Birth:";
+            // 
+            // lblDOB
+            // 
+            lblDOB.AutoSize = true;
+            lblDOB.Location = new System.Drawing.Point(138, 226);
+            lblDOB.Name = "lblDOB";
+            lblDOB.Size = new System.Drawing.Size(113, 20);
+            lblDOB.TabIndex = 9;
+            lblDOB.Text = "[DATEOFBIRTH]";
             // 
             // ViewUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 341);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblIsActive);
-            this.Controls.Add(this.lblSurname);
-            this.Controls.Add(this.lblForename);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "ViewUser";
-            this.Text = "ViewUser";
-            this.Load += new System.EventHandler(this.ViewUser_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(487, 339);
+            Controls.Add(lblDOB);
+            Controls.Add(label5);
+            Controls.Add(btnBack);
+            Controls.Add(lblIsActive);
+            Controls.Add(lblSurname);
+            Controls.Add(lblForename);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Name = "ViewUser";
+            Text = "ViewUser";
+            Load += ViewUser_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -143,5 +173,7 @@
         private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.Label lblIsActive;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDOB;
     }
 }

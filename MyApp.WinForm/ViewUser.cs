@@ -31,6 +31,7 @@ namespace MyApp.WinForm
                 lblForename.Text = user.Forename;
                 lblSurname.Text = user.Surname;
                 lblIsActive.Text = (user.IsActive ? "Yes" : "No");
+                lblDOB.Text = user.DateOfBirth.ToShortDateString();
             }
         }
 
