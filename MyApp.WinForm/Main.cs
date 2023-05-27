@@ -76,13 +76,21 @@ namespace MyApp.WinForm
         // Get the users and filter by Active
         private void btnActiveUsers_Click(object sender, EventArgs e)
         {
+            // This is the first C# I've ever written, this is terribly exciting...
 
+            // Get all users where the user.IsActive == true;
+            var activeUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == true select user;
+            // Pass list of active users to the ListView;
+            LoadListView(activeUsers);
         }
 
        // Get the users and filter by NonActive
         private void btnNonActiveUsers_Click(object sender, EventArgs e)
         {
-
+            // Get all users where the user.IsActive == false;
+            var inactiveUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == false select user;
+            // Pass list of inactive users to the ListView;
+            LoadListView(inactiveUsers);
         }
 
         // Load a form that allows you to view a selected user
