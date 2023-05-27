@@ -128,7 +128,20 @@ namespace MyApp.WinForm
         // Load a form that allows you to edit a selected user from the list
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (lstUsers.SelectedItems.Count > 0)
+            {    
+                // Get the user id from the selected item in the list view
+                var userId = int.Parse(lstUsers.SelectedItems[0].Text);
 
+                // Create new form
+                var editUser = new EditUser(this, ServiceFactory, userId);
+
+                // Show the new form
+                editUser.Show();
+
+                // Hide this form
+                this.Hide();
+            }
         }
 
         // Load a form that allows you to delete a selected user from the list

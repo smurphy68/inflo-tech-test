@@ -15,6 +15,9 @@
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
