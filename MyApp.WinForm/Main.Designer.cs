@@ -102,7 +102,6 @@
             label2.Size = new System.Drawing.Size(82, 29);
             label2.TabIndex = 3;
             label2.Text = "Filters";
-            label2.Click += label2_Click;
             // 
             // panel1
             // 

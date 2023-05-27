@@ -10,7 +10,6 @@ namespace MyApp.WinForm
 {
     public partial class AddUser : Form
     {
-        protected readonly int UserId;
         protected readonly Main Main;
         protected readonly IServiceFactory ServiceFactory;
 
@@ -22,10 +21,9 @@ namespace MyApp.WinForm
         bool isActiveValue;
         string forename, surname;
 
-        // This form relies upon the 'Main', the DataAccess, and the UserId in order to work
-        public AddUser(Main main, IServiceFactory serviceFactory /*, int userId*/)
+        // This form relies upon the 'Main' and the DataAccess in order to work
+        public AddUser(Main main, IServiceFactory serviceFactory)
         {
-            //UserId = userId;
             Main = main;
             ServiceFactory = serviceFactory;
 
@@ -111,16 +109,28 @@ namespace MyApp.WinForm
 
             if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
             {
+                //Instantiate Logger
+                Logger Logger = new Logger(Main, ServiceFactory);
+                
+                // Instantiate new empty list
+                List<string> dataLog = new List<string>();
+
+                // Instantiate newUser
                 User newUser = new User()
                 {
                     DateOfBirth = dob,
                     Surname = surname,
                     Forename = forename,
-                    IsActive = isActiveValue
+                    IsActive = isActiveValue,
+                    DataLog = dataLog
                 };
+
+                // Add first log to dataLog
+                newUser.DataLog.Add($"[INFO] User: {forename} {surname} was Added.");
 
                 // Add user to database (Ask about ServiceFactories, this took WAY too long to find)
                 ServiceFactory.UserService.Create(newUser);
+                Logger.WriteFileLog("INFO", $"User: {forename} {surname} was Added.");
 
                 // Show that the new user has been added
                 MessageBox.Show(newUser.getString(), "New User Added");

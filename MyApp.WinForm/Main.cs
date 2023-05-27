@@ -66,31 +66,63 @@ namespace MyApp.WinForm
         // Get all users with no filtering
         private void btnAllUsers_Click(object sender, EventArgs e)
         {
-            // Get all users from the Data Layer
-            var users = ServiceFactory.UserService.GetAll();
+            //Instantiatee Logger
+            Logger Logger = new Logger(this, ServiceFactory);
+            try
+            {   // Get all users from the Data Layer
+                var users = ServiceFactory.UserService.GetAll();
 
-            // pass the list to the ListView
-            LoadListView(users);
+                // pass the list to the ListView
+                LoadListView(users);
+
+                // Log if successful
+                Logger.WriteFileLog("INFO", "See all users.");
+
+            } catch (Exception ex) 
+            {
+                Logger.WriteFileLog("ERROR", ex.Message.ToString());
+            }
         }
 
         // Get the users and filter by Active
         private void btnActiveUsers_Click(object sender, EventArgs e)
         {
-            // This is the first C# I've ever written, this is terribly exciting...
+            //Instantiatee Logger
+            Logger Logger = new Logger(this, ServiceFactory);
+            try
+            {
+                // Get all users where the user.IsActive == true;
+                var activeUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == true select user;
+                // Pass list of active users to the ListView;
+                LoadListView(activeUsers);
 
-            // Get all users where the user.IsActive == true;
-            var activeUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == true select user;
-            // Pass list of active users to the ListView;
-            LoadListView(activeUsers);
+                //Log if successful
+                Logger.WriteFileLog("INFO", "Active users filtered.");
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteFileLog("ERROR", ex.ToString());
+            }
         }
 
         // Get the users and filter by NonActive
         private void btnNonActiveUsers_Click(object sender, EventArgs e)
         {
-            // Get all users where the user.IsActive == false;
-            var inactiveUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == false select user;
-            // Pass list of inactive users to the ListView;
-            LoadListView(inactiveUsers);
+            //Instantiatee Logger
+            Logger Logger = new Logger(this, ServiceFactory);
+            try
+            {
+                // Get all users where the user.IsActive == false;
+                var inactiveUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == false select user;
+                // Pass list of inactive users to the ListView;
+                LoadListView(inactiveUsers);
+
+                //Log if successful
+                Logger.WriteFileLog("INFO", "Inactive users filtered.");
+            } catch (Exception ex)
+            {
+                Logger.WriteFileLog("INFO", ex.Message.ToString());
+            }
         }
 
         // Load a form that allows you to view a selected user
@@ -98,14 +130,25 @@ namespace MyApp.WinForm
         {
             if (lstUsers.SelectedItems.Count > 0)
             {
-                // Get the user id from the selected item in the list view
-                var userId = int.Parse(lstUsers.SelectedItems[0].Text);
+                //Instantiate Logger
+                Logger Logger = new Logger(this, ServiceFactory);
+                try
+                {// Get the user id from the selected item in the list view
+                    var userId = int.Parse(lstUsers.SelectedItems[0].Text);
 
-                // Create new form
-                var viewUser = new ViewUser(this, ServiceFactory, userId);
+                    // Create new form
+                    var viewUser = new ViewUser(this, ServiceFactory, userId);
 
-                // Show the new form
-                viewUser.Show();
+                    // Show the new form
+                    viewUser.Show();
+
+                    //Log if successful 
+                    Logger.WriteFileLog("INFO", "Inactive users filtered.");
+                }
+                catch (Exception ex) 
+                {
+                    Logger.WriteFileLog("INFO", ex.Message.ToString());
+                }
             }
         }
 
@@ -132,7 +175,6 @@ namespace MyApp.WinForm
 
                 // Show the new form
                 editUser.Show();
-
             }
         }
 
@@ -147,11 +189,6 @@ namespace MyApp.WinForm
                 deleteUser.Show();
 
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

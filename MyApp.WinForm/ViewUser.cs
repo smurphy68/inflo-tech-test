@@ -23,6 +23,9 @@ namespace MyApp.WinForm
         // Load the user for the display
         private void ViewUser_Load(object sender, System.EventArgs e)
         {
+            //Instantiate Logger
+            Logger Logger = new Logger(Main, ServiceFactory);
+
             // Get the user by the ID
             var user = ServiceFactory.UserService.GetById(UserId);
 
@@ -34,7 +37,6 @@ namespace MyApp.WinForm
                 lblDOB.Text = user.DateOfBirth.ToShortDateString();
             }
         }
-
         // A back button to go back to the main list view
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -46,11 +48,6 @@ namespace MyApp.WinForm
         {
             base.OnFormClosing(e);
             Main.Show();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -50,7 +50,6 @@
             label1.Size = new System.Drawing.Size(128, 29);
             label1.TabIndex = 0;
             label1.Text = "View User";
-            label1.Click += label1_Click;
             // 
             // label2
             // 

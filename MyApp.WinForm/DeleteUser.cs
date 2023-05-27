@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using MyApp.Services.Factories.Interfaces;
 
@@ -42,10 +43,22 @@ namespace MyApp.WinForm
         //A delete button to remove the entry
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            userDeleted = true;
-            var user = ServiceFactory.UserService.GetById(UserId);
-            ServiceFactory.UserService.Delete(user);
-            this.Close();
+            //Instantiate Logger
+            Logger Logger = new Logger(Main, ServiceFactory);
+            try
+            {
+                userDeleted = true;
+                var user = ServiceFactory.UserService.GetById(UserId);
+                ServiceFactory.UserService.Delete(user);
+                this.Close();
+
+                //Log if Successful
+                Logger.WriteFileLog("INFO", $"User ID {user.Id}: {user.Forename} {user.Surname} was Deleted.");
+
+            } catch (Exception ex)
+            {
+                Logger.WriteFileLog("ERROR", ex.Message.ToString());
+            }
         }
 
         // A back button to go back to the main list view

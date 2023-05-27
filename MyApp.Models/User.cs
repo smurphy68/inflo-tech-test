@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MyApp.Models
 {
@@ -11,6 +12,8 @@ namespace MyApp.Models
         public bool IsActive { get; set; }
 
         public DateTime DateOfBirth { get; set; }
+
+        public List<string> DataLog { get; set; }
 
         public string getString ()
         {
