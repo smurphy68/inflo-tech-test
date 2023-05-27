@@ -147,9 +147,14 @@ namespace MyApp.WinForm
         // Load a form that allows you to delete a selected user from the list
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (lstUsers.SelectedItems.Count > 0)
+            {
+                // Get the user id from the selected item in the list view
+                var userId = int.Parse(lstUsers.SelectedItems[0].Text);
+                var deleteUser = new DeleteUser(this, ServiceFactory, userId);
+                deleteUser.Show();
 
+            }
         }
-
-
     }
 }
