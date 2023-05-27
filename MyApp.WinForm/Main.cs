@@ -115,7 +115,14 @@ namespace MyApp.WinForm
         // Load a form that allows you to create a new user
         private void btnAdd_Click(object sender, EventArgs e)
         {
+                // Create new form
+                var addUser = new AddUser(this, ServiceFactory);
 
+                // Show the new form
+                addUser.Show();
+
+                // Hide this form
+                this.Hide();
         }
 
         // Load a form that allows you to edit a selected user from the list
