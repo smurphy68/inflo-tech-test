@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             btnBack = new System.Windows.Forms.Button();
             label5 = new System.Windows.Forms.Label();
             lblDOB = new System.Windows.Forms.Label();
+            listLogMessages = new System.Windows.Forms.ListView();
+            LogMessages = new System.Windows.Forms.ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -54,7 +57,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(95, 88);
+            label2.Location = new System.Drawing.Point(11, 259);
             label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(78, 20);
@@ -64,7 +67,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(95, 135);
+            label3.Location = new System.Drawing.Point(11, 306);
             label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(70, 20);
@@ -74,7 +77,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(95, 181);
+            label4.Location = new System.Drawing.Point(11, 352);
             label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(67, 20);
@@ -84,7 +87,7 @@
             // lblForename
             // 
             lblForename.AutoSize = true;
-            lblForename.Location = new System.Drawing.Point(279, 88);
+            lblForename.Location = new System.Drawing.Point(195, 259);
             lblForename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblForename.Name = "lblForename";
             lblForename.Size = new System.Drawing.Size(96, 20);
@@ -94,7 +97,7 @@
             // lblSurname
             // 
             lblSurname.AutoSize = true;
-            lblSurname.Location = new System.Drawing.Point(279, 135);
+            lblSurname.Location = new System.Drawing.Point(195, 306);
             lblSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblSurname.Name = "lblSurname";
             lblSurname.Size = new System.Drawing.Size(88, 20);
@@ -104,7 +107,7 @@
             // lblIsActive
             // 
             lblIsActive.AutoSize = true;
-            lblIsActive.Location = new System.Drawing.Point(279, 181);
+            lblIsActive.Location = new System.Drawing.Point(195, 352);
             lblIsActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblIsActive.Name = "lblIsActive";
             lblIsActive.Size = new System.Drawing.Size(79, 20);
@@ -113,7 +116,7 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new System.Drawing.Point(365, 288);
+            btnBack.Location = new System.Drawing.Point(631, 373);
             btnBack.Margin = new System.Windows.Forms.Padding(2);
             btnBack.Name = "btnBack";
             btnBack.Size = new System.Drawing.Size(106, 54);
@@ -125,7 +128,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(95, 220);
+            label5.Location = new System.Drawing.Point(11, 391);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(97, 20);
             label5.TabIndex = 8;
@@ -134,17 +137,36 @@
             // lblDOB
             // 
             lblDOB.AutoSize = true;
-            lblDOB.Location = new System.Drawing.Point(279, 220);
+            lblDOB.Location = new System.Drawing.Point(195, 391);
             lblDOB.Name = "lblDOB";
             lblDOB.Size = new System.Drawing.Size(113, 20);
             lblDOB.TabIndex = 9;
             lblDOB.Text = "[DATEOFBIRTH]";
             // 
+            // listLogMessages
+            // 
+            listLogMessages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { LogMessages });
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            listLogMessages.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
+            listLogMessages.Location = new System.Drawing.Point(11, 41);
+            listLogMessages.Name = "listLogMessages";
+            listLogMessages.Size = new System.Drawing.Size(710, 202);
+            listLogMessages.TabIndex = 10;
+            listLogMessages.UseCompatibleStateImageBehavior = false;
+            listLogMessages.View = System.Windows.Forms.View.List;
+            // 
+            // LogMessages
+            // 
+            LogMessages.Text = "Log Message";
+            LogMessages.Width = 710;
+            // 
             // ViewUser
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(482, 353);
+            ClientSize = new System.Drawing.Size(739, 438);
+            Controls.Add(listLogMessages);
             Controls.Add(lblDOB);
             Controls.Add(label5);
             Controls.Add(btnBack);
@@ -175,5 +197,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblDOB;
+        private System.Windows.Forms.ListView listLogMessages;
+        private System.Windows.Forms.ColumnHeader LogMessages;
     }
 }

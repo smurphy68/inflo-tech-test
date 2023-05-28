@@ -65,7 +65,7 @@ namespace MyApp.WinForm
             // Intantiate logger
             Logger Logger = new Logger(Main, ServiceFactory);
 
-            try 
+            try
             {
                 // add all field values to a list for checking
                 List<string> newUserParameters = new List<string>
@@ -144,7 +144,7 @@ namespace MyApp.WinForm
                         user.DataLog = new List<string>();
                     }
                     var dataLog = user.DataLog;
-                    dataLog.Add($"{DateTime.Now}: INFO: User {user.Id}: {forename} {surname} was Updated");
+                    dataLog.Add($"{DateTime.Now}: [INFO]: User {user.Id}: {forename} {surname} was Updated");
 
                     user.Surname = surname;
                     user.DateOfBirth = dob;
@@ -159,11 +159,12 @@ namespace MyApp.WinForm
                     MessageBox.Show(user.getString(), "User Updated");
 
                     //Logging if successful
-                    Logger.WriteFileLog("INFO", $"User ID {user.Id}: {forename} {surname} was Updated.");
+                    Logger.WriteFileLog("[INFO]", $"User ID {user.Id}: {forename} {surname} was Updated.");
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                Logger.WriteFileLog("ERROR", ex.Message.ToString());
+                Logger.WriteFileLog("[ERROR]", ex.Message.ToString());
             }
         }
 

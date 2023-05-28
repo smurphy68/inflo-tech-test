@@ -106,28 +106,28 @@
             // 
             txtForename.Location = new System.Drawing.Point(167, 94);
             txtForename.Name = "txtForename";
-            txtForename.Size = new System.Drawing.Size(304, 27);
+            txtForename.Size = new System.Drawing.Size(284, 27);
             txtForename.TabIndex = 9;
             // 
             // txtIsActive
             // 
             txtIsActive.Location = new System.Drawing.Point(167, 182);
             txtIsActive.Name = "txtIsActive";
-            txtIsActive.Size = new System.Drawing.Size(304, 27);
+            txtIsActive.Size = new System.Drawing.Size(284, 27);
             txtIsActive.TabIndex = 10;
             // 
             // txtDateOfBirth
             // 
             txtDateOfBirth.Location = new System.Drawing.Point(167, 226);
             txtDateOfBirth.Name = "txtDateOfBirth";
-            txtDateOfBirth.Size = new System.Drawing.Size(303, 27);
+            txtDateOfBirth.Size = new System.Drawing.Size(283, 27);
             txtDateOfBirth.TabIndex = 11;
             // 
             // txtSurname
             // 
             txtSurname.Location = new System.Drawing.Point(167, 138);
             txtSurname.Name = "txtSurname";
-            txtSurname.Size = new System.Drawing.Size(304, 27);
+            txtSurname.Size = new System.Drawing.Size(284, 27);
             txtSurname.TabIndex = 12;
             // 
             // btnEditUser

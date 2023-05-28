@@ -111,7 +111,7 @@ namespace MyApp.WinForm
             {
                 //Instantiate Logger
                 Logger Logger = new Logger(Main, ServiceFactory);
-                
+
                 // Instantiate new empty list
                 List<string> dataLog = new List<string>();
 
@@ -130,7 +130,7 @@ namespace MyApp.WinForm
 
                 // Add user to database (Ask about ServiceFactories, this took WAY too long to find)
                 ServiceFactory.UserService.Create(newUser);
-                Logger.WriteFileLog("INFO", $"User: {forename} {surname} was Added.");
+                Logger.WriteFileLog("[INFO]", $"User: {forename} {surname} was Added.");
 
                 // Show that the new user has been added
                 MessageBox.Show(newUser.getString(), "New User Added");

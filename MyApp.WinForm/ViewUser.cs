@@ -23,20 +23,31 @@ namespace MyApp.WinForm
         // Load the user for the display
         private void ViewUser_Load(object sender, System.EventArgs e)
         {
-            //Instantiate Logger
-            Logger Logger = new Logger(Main, ServiceFactory);
-
-            // Get the user by the ID
+            // Get the user by the ID and parse information if its there
             var user = ServiceFactory.UserService.GetById(UserId);
-
             if (user != null)
             {
                 lblForename.Text = user.Forename;
                 lblSurname.Text = user.Surname;
                 lblIsActive.Text = (user.IsActive ? "Yes" : "No");
                 lblDOB.Text = user.DateOfBirth.ToShortDateString();
+
+                // resizing shape of column to fit window
+                listLogMessages.Columns[0].Width = 700;
+                listLogMessages.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                // if there is any logged information, push it to the listview
+                if (user.DataLog != null)
+                {
+                    foreach (string item in user.DataLog)
+                    {
+                        listLogMessages.Items.Add(item);
+                    }
+                }
             }
         }
+
+
         // A back button to go back to the main list view
         private void btnBack_Click(object sender, EventArgs e)
         {

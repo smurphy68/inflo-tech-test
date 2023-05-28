@@ -76,11 +76,11 @@ namespace MyApp.WinForm
                 LoadListView(users);
 
                 // Log if successful
-                Logger.WriteFileLog("INFO", "See all users.");
+                Logger.WriteFileLog("[INFO]", "See all users.");
 
             } catch (Exception ex) 
             {
-                Logger.WriteFileLog("ERROR", ex.Message.ToString());
+                Logger.WriteFileLog("[ERROR]", ex.Message.ToString());
             }
         }
 
@@ -97,18 +97,18 @@ namespace MyApp.WinForm
                 LoadListView(activeUsers);
 
                 //Log if successful
-                Logger.WriteFileLog("INFO", "Active users filtered.");
+                Logger.WriteFileLog("[INFO]", "Active users filtered.");
             }
             catch (Exception ex)
             {
-                Logger.WriteFileLog("ERROR", ex.ToString());
+                Logger.WriteFileLog("[ERROR]", ex.ToString());
             }
         }
 
         // Get the users and filter by NonActive
         private void btnNonActiveUsers_Click(object sender, EventArgs e)
         {
-            //Instantiatee Logger
+            //Instantiate Logger
             Logger Logger = new Logger(this, ServiceFactory);
             try
             {
@@ -118,10 +118,10 @@ namespace MyApp.WinForm
                 LoadListView(inactiveUsers);
 
                 //Log if successful
-                Logger.WriteFileLog("INFO", "Inactive users filtered.");
+                Logger.WriteFileLog("[INFO]", "Inactive users filtered.");
             } catch (Exception ex)
             {
-                Logger.WriteFileLog("INFO", ex.Message.ToString());
+                Logger.WriteFileLog("[INFO]", ex.Message.ToString());
             }
         }
 
@@ -143,11 +143,11 @@ namespace MyApp.WinForm
                     viewUser.Show();
 
                     //Log if successful 
-                    Logger.WriteFileLog("INFO", "Inactive users filtered.");
+                    Logger.WriteFileLog("[INFO]", "Inactive users filtered.");
                 }
                 catch (Exception ex) 
                 {
-                    Logger.WriteFileLog("INFO", ex.Message.ToString());
+                    Logger.WriteFileLog("[INFO]", ex.Message.ToString());
                 }
             }
         }
