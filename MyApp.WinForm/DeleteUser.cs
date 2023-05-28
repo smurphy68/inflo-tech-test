@@ -53,11 +53,11 @@ namespace MyApp.WinForm
                 this.Close();
 
                 //Log if Successful
-                Logger.WriteFileLog("INFO", $"User ID {user.Id}: {user.Forename} {user.Surname} was Deleted.");
+                Logger.WriteFileLog("[INFO]", $"User ID {user.Id}: {user.Forename} {user.Surname} was Deleted.");
 
             } catch (Exception ex)
             {
-                Logger.WriteFileLog("ERROR", ex.Message.ToString());
+                Logger.WriteFileLog("[ERROR]", ex.Message.ToString());
             }
         }
 

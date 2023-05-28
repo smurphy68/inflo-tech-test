@@ -126,7 +126,7 @@ namespace MyApp.WinForm
                 };
 
                 // Add first log to dataLog
-                newUser.DataLog.Add($"[INFO] User: {forename} {surname} was Added.");
+                newUser.DataLog.Add($"{DateTime.Now}: [INFO] User: {forename} {surname} was Added.");
 
                 // Add user to database (Ask about ServiceFactories, this took WAY too long to find)
                 ServiceFactory.UserService.Create(newUser);
