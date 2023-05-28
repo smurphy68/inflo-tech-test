@@ -43,6 +43,7 @@ namespace MyApp.WinForm
         {
             this.Close();
         }
+        // custom Method to display input errors to the user.
         private void handleValidationError(object sender, string err)
         {
             MessageBox.Show(err, "Invalid input");
@@ -65,9 +66,9 @@ namespace MyApp.WinForm
             {
                 // add all field values to a list for checking
                 List<string> newUserParameters = new List<string>
-            {
-                txtIsActive.Text, txtDateOfBirth.Text, txtForename.Text, txtSurname.Text
-            };
+                {
+                    txtIsActive.Text, txtDateOfBirth.Text, txtForename.Text, txtSurname.Text
+                };
 
                 // check if any fields are empty
                 if (newUserParameters.All(i => i != ""))
@@ -84,7 +85,6 @@ namespace MyApp.WinForm
                 {
                     isActiveChecked = true;
                     isActiveValue = (txtIsActive.Text.ToLower() == "yes") /*? true : false*/;
-
                 }
                 else
                 {
@@ -99,7 +99,7 @@ namespace MyApp.WinForm
                 }
                 catch
                 {
-                    handleValidationError(sender, "Date of Birth must be in the format 'DD/MM/YY'");
+                    handleValidationError(sender, "Date of Birth must be in the format 'DD/MM/YY'.");
                 }
 
                 // I googled this bit because I thought it would be fun
@@ -115,7 +115,7 @@ namespace MyApp.WinForm
                 }
                 else
                 {
-                    handleValidationError(sender, "Names cannot contain special characters or be longer than 25 characters");
+                    handleValidationError(sender, "Names cannot contain special characters or be longer than 25 characters.");
                 }
 
                 // check surname
@@ -126,12 +126,11 @@ namespace MyApp.WinForm
                 }
                 else
                 {
-                    handleValidationError(sender, "Names cannot contain special characters  or be longer than 25 characters");
+                    handleValidationError(sender, "Names cannot contain special characters  or be longer than 25 characters.");
                 }
 
                 if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
                 {
-
                     // Logging data to User Record, to show on View
                     user.Surname = surname;
                     user.DateOfBirth = dob;
@@ -142,10 +141,10 @@ namespace MyApp.WinForm
                     ServiceFactory.UserService.Update(user);
 
                     // Show that the new user has been added
-                    MessageBox.Show(user.getString(), "User Updated");
+                    MessageBox.Show(user.getString(), "User Updated.");
 
                     //Logging if successful
-                    logger.Log("INFO", "User was Updated", user);
+                    logger.Log("INFO", "User was Updated.", user);
                 }
             }
             catch (Exception ex)

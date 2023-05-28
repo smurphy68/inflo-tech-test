@@ -27,7 +27,7 @@ namespace MyApp.WinForm
     {
         protected readonly Main Main;
         protected readonly IServiceFactory ServiceFactory;
-        protected readonly Dictionary<int, List<string>> Logs;
+        public readonly Dictionary<int, List<string>> Logs;
         public Logger(Main main, IServiceFactory serviceFactory)
         {
             ServiceFactory = serviceFactory;

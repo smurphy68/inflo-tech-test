@@ -31,6 +31,12 @@ namespace MyApp.WinForm
             lstUsers.Columns[1].Width = 240;
             lstUsers.Columns[2].Width = 240;
             lstUsers.Columns[3].Width = 70;
+
+            // Get all users
+            var users = ServiceFactory.UserService.GetAll();
+
+            // pass the list to the ListView
+            LoadListView(users);
         }
 
         // This overrides the default "Show()" method so we can refresh the ListView
@@ -61,8 +67,6 @@ namespace MyApp.WinForm
                 }
             )).ToArray());
         }
-
-
 
         // Get all users with no filtering
         private void btnAllUsers_Click(object sender, EventArgs e)
@@ -141,9 +145,12 @@ namespace MyApp.WinForm
             {
                 // Get the user id from the selected item in the list view
                 var userId = int.Parse(lstUsers.SelectedItems[0].Text);
+               
+                // Create new form
                 var deleteUser = new DeleteUser(this, ServiceFactory, userId, logger);
-                deleteUser.Show();
 
+                // Show the form
+                deleteUser.Show();
             }
         }
     }

@@ -114,21 +114,21 @@
             txtIsActive.Location = new System.Drawing.Point(167, 182);
             txtIsActive.Name = "txtIsActive";
             txtIsActive.Size = new System.Drawing.Size(283, 27);
-            txtIsActive.TabIndex = 10;
+            txtIsActive.TabIndex = 11;
             // 
             // txtDateOfBirth
             // 
             txtDateOfBirth.Location = new System.Drawing.Point(167, 226);
             txtDateOfBirth.Name = "txtDateOfBirth";
             txtDateOfBirth.Size = new System.Drawing.Size(283, 27);
-            txtDateOfBirth.TabIndex = 11;
+            txtDateOfBirth.TabIndex = 12;
             // 
             // txtSurname
             // 
             txtSurname.Location = new System.Drawing.Point(167, 138);
             txtSurname.Name = "txtSurname";
             txtSurname.Size = new System.Drawing.Size(283, 27);
-            txtSurname.TabIndex = 12;
+            txtSurname.TabIndex = 10;
             // 
             // btnAddUser
             // 

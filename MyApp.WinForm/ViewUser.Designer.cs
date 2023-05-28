@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -39,8 +38,16 @@
             btnBack = new System.Windows.Forms.Button();
             label5 = new System.Windows.Forms.Label();
             lblDOB = new System.Windows.Forms.Label();
+            LogNumber = new System.Windows.Forms.ColumnHeader();
+            DateTime = new System.Windows.Forms.ColumnHeader();
+            UserForename = new System.Windows.Forms.ColumnHeader();
+            UserSurname = new System.Windows.Forms.ColumnHeader();
+            LogMessage = new System.Windows.Forms.ColumnHeader();
             listLogMessages = new System.Windows.Forms.ListView();
-            LogMessages = new System.Windows.Forms.ColumnHeader();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            columnHeader4 = new System.Windows.Forms.ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -57,7 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(11, 259);
+            label2.Location = new System.Drawing.Point(11, 262);
             label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(78, 20);
@@ -77,7 +84,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(11, 352);
+            label4.Location = new System.Drawing.Point(11, 348);
             label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(67, 20);
@@ -87,7 +94,7 @@
             // lblForename
             // 
             lblForename.AutoSize = true;
-            lblForename.Location = new System.Drawing.Point(195, 259);
+            lblForename.Location = new System.Drawing.Point(195, 262);
             lblForename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblForename.Name = "lblForename";
             lblForename.Size = new System.Drawing.Size(96, 20);
@@ -107,7 +114,7 @@
             // lblIsActive
             // 
             lblIsActive.AutoSize = true;
-            lblIsActive.Location = new System.Drawing.Point(195, 352);
+            lblIsActive.Location = new System.Drawing.Point(195, 348);
             lblIsActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblIsActive.Name = "lblIsActive";
             lblIsActive.Size = new System.Drawing.Size(79, 20);
@@ -116,7 +123,7 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new System.Drawing.Point(631, 373);
+            btnBack.Location = new System.Drawing.Point(621, 373);
             btnBack.Margin = new System.Windows.Forms.Padding(2);
             btnBack.Name = "btnBack";
             btnBack.Size = new System.Drawing.Size(106, 54);
@@ -143,23 +150,55 @@
             lblDOB.TabIndex = 9;
             lblDOB.Text = "[DATEOFBIRTH]";
             // 
+            // LogNumber
+            // 
+            LogNumber.Text = "Log Number";
+            // 
+            // DateTime
+            // 
+            DateTime.Text = "Date Time";
+            // 
+            // UserForename
+            // 
+            UserForename.Text = "Forname";
+            // 
+            // UserSurname
+            // 
+            UserSurname.Text = "Surname";
+            // 
+            // LogMessage
+            // 
+            LogMessage.Text = "Log Message";
+            // 
             // listLogMessages
             // 
-            listLogMessages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { LogMessages });
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            listLogMessages.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
-            listLogMessages.Location = new System.Drawing.Point(11, 41);
+            listLogMessages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            listLogMessages.Location = new System.Drawing.Point(12, 44);
             listLogMessages.Name = "listLogMessages";
-            listLogMessages.Size = new System.Drawing.Size(710, 202);
+            listLogMessages.Size = new System.Drawing.Size(715, 202);
             listLogMessages.TabIndex = 10;
             listLogMessages.UseCompatibleStateImageBehavior = false;
-            listLogMessages.View = System.Windows.Forms.View.List;
+            listLogMessages.View = System.Windows.Forms.View.Details;
             // 
-            // LogMessages
+            // columnHeader1
             // 
-            LogMessages.Text = "Log Message";
-            LogMessages.Width = 710;
+            columnHeader1.Text = "Log ID";
+            columnHeader1.Width = 80;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Log Level";
+            columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Timestamp";
+            columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Message";
+            columnHeader4.Width = 500;
             // 
             // ViewUser
             // 
@@ -197,7 +236,15 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblDOB;
+        private System.Windows.Forms.ColumnHeader LogNumber;
+        private System.Windows.Forms.ColumnHeader DateTime;
+        private System.Windows.Forms.ColumnHeader UserForename;
+        private System.Windows.Forms.ColumnHeader UserSurname;
+        private System.Windows.Forms.ColumnHeader LogMessage;
         private System.Windows.Forms.ListView listLogMessages;
-        private System.Windows.Forms.ColumnHeader LogMessages;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

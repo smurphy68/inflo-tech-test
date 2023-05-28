@@ -16,7 +16,6 @@ namespace MyApp.WinForm
         protected readonly User user;
         bool userDeleted = false;
 
-
         // This form relies upon the 'Main', the DataAccess, and the UserId in order to work
         public DeleteUser(Main main, IServiceFactory serviceFactory, int userId, Logger logger)
         {
@@ -32,7 +31,7 @@ namespace MyApp.WinForm
         // Load the user for the display
         private void ViewUser_Load(object sender, System.EventArgs e)
         {
-            if (user != null && userDeleted == false) // If we have a user then show their details
+            if (user != null && userDeleted == false) // If we have a user then show their details userDeleted stops an error if the target user no longer exists
             {
                 lblForename.Text = user.Forename;
                 lblSurname.Text = user.Surname;
@@ -46,6 +45,7 @@ namespace MyApp.WinForm
         {
             try
             {
+                //Delete user
                 userDeleted = true;
                 ServiceFactory.UserService.Delete(user);
                 this.Close();
