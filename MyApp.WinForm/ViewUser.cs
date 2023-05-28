@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using MyApp.Services.Factories.Interfaces;
 using System.Collections.Generic;
 
