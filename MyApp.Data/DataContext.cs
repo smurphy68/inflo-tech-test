@@ -12,10 +12,10 @@ namespace MyApp.Data
         {
             Users = new List<User>
             {
-                new User { Id = 1, Forename = "Grant", Surname = "Cooper", IsActive = true, DateOfBirth = DateTime.Parse("23/05/1995"), DataLog={} },
-                new User { Id = 2, Forename = "Tom", Surname = "Gathercole", IsActive = false, DateOfBirth = DateTime.Parse("23/07/1995"), DataLog={} },
-                new User { Id = 3, Forename = "Mark", Surname = "Edmondson", IsActive = true, DateOfBirth = DateTime.Parse("23/09/1995"), DataLog={} },
-                new User { Id = 4, Forename = "Graham", Surname = "Clark", IsActive = false, DateOfBirth = DateTime.Parse("23/12/1995"), DataLog={} }
+                new User { Id = 1, Forename = "Grant", Surname = "Cooper", IsActive = true, DateOfBirth = DateTime.Parse("23/05/1995") },
+                new User { Id = 2, Forename = "Tom", Surname = "Gathercole", IsActive = false, DateOfBirth = DateTime.Parse("23/07/1995") },
+                new User { Id = 3, Forename = "Mark", Surname = "Edmondson", IsActive = true, DateOfBirth = DateTime.Parse("23/09/1995") },
+                new User { Id = 4, Forename = "Graham", Surname = "Clark", IsActive = false, DateOfBirth = DateTime.Parse("23/12/1995") }
             };
         }
 

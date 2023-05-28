@@ -14,6 +14,8 @@ namespace MyApp.WinForm
         protected readonly int UserId;
         protected readonly Main Main;
         protected readonly IServiceFactory ServiceFactory;
+        protected readonly Logger logger;
+        protected readonly User user;
 
         // declare validation variables
         bool allFieldsComplete, isActiveChecked, dobChecked, forenameChecked, surnameChecked;
@@ -24,13 +26,16 @@ namespace MyApp.WinForm
         string forename, surname;
 
         // This form relies upon the 'Main', the DataAccess, and the UserId in order to work
-        public EditUser(Main main, IServiceFactory serviceFactory, int userId)
+        public EditUser(Main main, IServiceFactory serviceFactory, int userId, Logger logger)
         {
             UserId = userId;
             Main = main;
             ServiceFactory = serviceFactory;
+            this.logger = logger;
+            this.user = ServiceFactory.UserService.GetById(UserId);
 
             InitializeComponent();
+
         }
 
         // A back button to go back to the main list view
@@ -45,12 +50,6 @@ namespace MyApp.WinForm
 
         private void ViewUser_Load(object sender, System.EventArgs e)
         {
-            //Instantiate Logger
-            Logger Logger = new Logger(Main, ServiceFactory);
-
-            // Get the user by the ID
-            var user = ServiceFactory.UserService.GetById(UserId);
-
             if (user != null) // If we have a user then show their details
             {
                 txtForename.Text = user.Forename;
@@ -62,9 +61,6 @@ namespace MyApp.WinForm
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            // Intantiate logger
-            Logger Logger = new Logger(Main, ServiceFactory);
-
             try
             {
                 // add all field values to a list for checking
@@ -136,21 +132,11 @@ namespace MyApp.WinForm
                 if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
                 {
 
-                    var user = ServiceFactory.UserService.GetById(UserId);
-
                     // Logging data to User Record, to show on View
-                    if (user.DataLog == null)
-                    {
-                        user.DataLog = new List<string>();
-                    }
-                    var dataLog = user.DataLog;
-                    dataLog.Add($"{DateTime.Now}: [INFO]: User {user.Id}: {forename} {surname} was Updated");
-
                     user.Surname = surname;
                     user.DateOfBirth = dob;
                     user.Forename = forename;
                     user.IsActive = isActiveValue;
-                    user.DataLog = dataLog;
 
                     // Add user to database
                     ServiceFactory.UserService.Update(user);
@@ -159,12 +145,12 @@ namespace MyApp.WinForm
                     MessageBox.Show(user.getString(), "User Updated");
 
                     //Logging if successful
-                    Logger.WriteFileLog("[INFO]", $"User ID {user.Id}: {forename} {surname} was Updated.");
+                    logger.Log("INFO", "User was Updated", user);
                 }
             }
             catch (Exception ex)
             {
-                Logger.WriteFileLog("[ERROR]", ex.Message.ToString());
+                logger.Log("ERROR", ex.Message.ToString(), user);
             }
         }
 

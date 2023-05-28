@@ -10,12 +10,13 @@ namespace MyApp.WinForm
     public partial class Main : Form
     {
         protected readonly IServiceFactory ServiceFactory;
+        private readonly Logger logger;
 
         // This form relies upon the DataAccess in order to work
         public Main(IServiceFactory serviceFactory)
         {
             ServiceFactory = serviceFactory;
-
+            logger = new Logger(this, serviceFactory);
             InitializeComponent();
         }
 
@@ -66,63 +67,29 @@ namespace MyApp.WinForm
         // Get all users with no filtering
         private void btnAllUsers_Click(object sender, EventArgs e)
         {
-            //Instantiatee Logger
-            Logger Logger = new Logger(this, ServiceFactory);
-            try
-            {   // Get all users from the Data Layer
-                var users = ServiceFactory.UserService.GetAll();
+            // Get all users from the Data Layer
+            var users = ServiceFactory.UserService.GetAll();
 
-                // pass the list to the ListView
-                LoadListView(users);
-
-                // Log if successful
-                Logger.WriteFileLog("[INFO]", "See all users.");
-
-            } catch (Exception ex) 
-            {
-                Logger.WriteFileLog("[ERROR]", ex.Message.ToString());
-            }
+            // pass the list to the ListView
+            LoadListView(users);
         }
 
         // Get the users and filter by Active
         private void btnActiveUsers_Click(object sender, EventArgs e)
         {
-            //Instantiatee Logger
-            Logger Logger = new Logger(this, ServiceFactory);
-            try
-            {
-                // Get all users where the user.IsActive == true;
-                var activeUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == true select user;
-                // Pass list of active users to the ListView;
-                LoadListView(activeUsers);
-
-                //Log if successful
-                Logger.WriteFileLog("[INFO]", "Active users filtered.");
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteFileLog("[ERROR]", ex.ToString());
-            }
+            // Get all users where the user.IsActive == true;
+            var activeUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == true select user;
+            // Pass list of active users to the ListView;
+            LoadListView(activeUsers);
         }
 
         // Get the users and filter by NonActive
         private void btnNonActiveUsers_Click(object sender, EventArgs e)
         {
-            //Instantiate Logger
-            Logger Logger = new Logger(this, ServiceFactory);
-            try
-            {
-                // Get all users where the user.IsActive == false;
-                var inactiveUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == false select user;
-                // Pass list of inactive users to the ListView;
-                LoadListView(inactiveUsers);
-
-                //Log if successful
-                Logger.WriteFileLog("[INFO]", "Inactive users filtered.");
-            } catch (Exception ex)
-            {
-                Logger.WriteFileLog("[INFO]", ex.Message.ToString());
-            }
+            // Get all users where the user.IsActive == false;
+            var inactiveUsers = from user in ServiceFactory.UserService.GetAll() where user.IsActive == false select user;
+            // Pass list of inactive users to the ListView;
+            LoadListView(inactiveUsers);
         }
 
         // Load a form that allows you to view a selected user
@@ -130,25 +97,14 @@ namespace MyApp.WinForm
         {
             if (lstUsers.SelectedItems.Count > 0)
             {
-                //Instantiate Logger
-                Logger Logger = new Logger(this, ServiceFactory);
-                try
-                {// Get the user id from the selected item in the list view
-                    var userId = int.Parse(lstUsers.SelectedItems[0].Text);
+                // Get the user id from the selected item in the list view
+                var userId = int.Parse(lstUsers.SelectedItems[0].Text);
 
-                    // Create new form
-                    var viewUser = new ViewUser(this, ServiceFactory, userId);
+                // Create new form
+                var viewUser = new ViewUser(this, ServiceFactory, userId, logger);
 
-                    // Show the new form
-                    viewUser.Show();
-
-                    //Log if successful 
-                    Logger.WriteFileLog("[INFO]", "Inactive users filtered.");
-                }
-                catch (Exception ex) 
-                {
-                    Logger.WriteFileLog("[INFO]", ex.Message.ToString());
-                }
+                // Show the new form
+                viewUser.Show();
             }
         }
 
@@ -156,7 +112,7 @@ namespace MyApp.WinForm
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Create new form
-            var addUser = new AddUser(this, ServiceFactory);
+            var addUser = new AddUser(this, ServiceFactory, logger);
 
             // Show the new form
             addUser.Show();
@@ -171,7 +127,7 @@ namespace MyApp.WinForm
                 var userId = int.Parse(lstUsers.SelectedItems[0].Text);
 
                 // Create new form
-                var editUser = new EditUser(this, ServiceFactory, userId);
+                var editUser = new EditUser(this, ServiceFactory, userId, logger);
 
                 // Show the new form
                 editUser.Show();
@@ -185,7 +141,7 @@ namespace MyApp.WinForm
             {
                 // Get the user id from the selected item in the list view
                 var userId = int.Parse(lstUsers.SelectedItems[0].Text);
-                var deleteUser = new DeleteUser(this, ServiceFactory, userId);
+                var deleteUser = new DeleteUser(this, ServiceFactory, userId, logger);
                 deleteUser.Show();
 
             }

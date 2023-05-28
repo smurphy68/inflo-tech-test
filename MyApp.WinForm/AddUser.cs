@@ -12,6 +12,8 @@ namespace MyApp.WinForm
     {
         protected readonly Main Main;
         protected readonly IServiceFactory ServiceFactory;
+        protected readonly Logger logger;
+        protected readonly User newUser;
 
         // declare validation variables
         bool allFieldsComplete, isActiveChecked, dobChecked, forenameChecked, surnameChecked;
@@ -22,12 +24,14 @@ namespace MyApp.WinForm
         string forename, surname;
 
         // This form relies upon the 'Main' and the DataAccess in order to work
-        public AddUser(Main main, IServiceFactory serviceFactory)
+        public AddUser(Main main, IServiceFactory serviceFactory, Logger logger)
         {
             Main = main;
             ServiceFactory = serviceFactory;
-
             InitializeComponent();
+            this.logger = logger;
+            newUser = new User();
+
         }
 
         // A back button to go back to the main list view
@@ -41,99 +45,94 @@ namespace MyApp.WinForm
         }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            // add all field values to a list for checking
-            List<string> newUserParameters = new List<string>
+            try
+            {
+                // add all field values to a list for checking
+                List<string> newUserParameters = new List<string>
             {
                 txtIsActive.Text, txtDateOfBirth.Text, txtForename.Text, txtSurname.Text
             };
 
-            // check if any fields are empty
-            if (newUserParameters.All(i => i != ""))
-            {
-                allFieldsComplete = true;
-            }
-            else
-            {
-                handleValidationError(sender, "Empty Fields");
-            }
-
-            // check if active user input == yes or no
-            if (txtIsActive.Text.ToLower() == "yes" || txtIsActive.Text.ToLower() == "no")
-            {
-                isActiveChecked = true;
-                isActiveValue = (txtIsActive.Text.ToLower() == "yes") /*? true : false*/;
-
-            }
-            else
-            {
-                handleValidationError(sender, "Active User (Yes or No)");
-            }
-
-            // check DOB
-            try
-            {
-                dob = DateTime.Parse(txtDateOfBirth.Text);
-                dobChecked = true;
-            }
-            catch
-            {
-                handleValidationError(sender, "Date of Birth must be in the format 'DD/MM/YY'");
-            }
-
-            // I googled this bit because I thought it would be fun
-            // declare regex
-            string normalChars = @"[^a-zA-Z0-9]";
-            Regex regex = new Regex(normalChars);
-
-            // check forename
-            if (!regex.IsMatch(txtForename.Text) && txtForename.Text.Length <= 25)
-            { // evaluates to true if special chars are present and the length of the string is less than 50 chars
-                forename = txtForename.Text;
-                forenameChecked = true;
-            }
-            else
-            {
-                handleValidationError(sender, "Names cannot contain special characters or be longer than 25 characters");
-            }
-
-            // check surname
-            if (!regex.IsMatch(txtSurname.Text) && txtSurname.Text.Length <= 25)
-            { // evaluates to true if special chars are present and the length of the string is less than 50 chars
-                surname = txtSurname.Text;
-                surnameChecked = true;
-            }
-            else
-            {
-                handleValidationError(sender, "Names cannot contain special characters  or be longer than 25 characters");
-            }
-
-            if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
-            {
-                //Instantiate Logger
-                Logger Logger = new Logger(Main, ServiceFactory);
-
-                // Instantiate new empty list
-                List<string> dataLog = new List<string>();
-
-                // Instantiate newUser
-                User newUser = new User()
+                // check if any fields are empty
+                if (newUserParameters.All(i => i != ""))
                 {
-                    DateOfBirth = dob,
-                    Surname = surname,
-                    Forename = forename,
-                    IsActive = isActiveValue,
-                    DataLog = dataLog
-                };
+                    allFieldsComplete = true;
+                }
+                else
+                {
+                    handleValidationError(sender, "Empty Fields");
+                }
 
-                // Add first log to dataLog
-                newUser.DataLog.Add($"{DateTime.Now}: [INFO] User: {forename} {surname} was Added.");
+                // check if active user input == yes or no
+                if (txtIsActive.Text.ToLower() == "yes" || txtIsActive.Text.ToLower() == "no")
+                {
+                    isActiveChecked = true;
+                    isActiveValue = (txtIsActive.Text.ToLower() == "yes") /*? true : false*/;
 
-                // Add user to database (Ask about ServiceFactories, this took WAY too long to find)
-                ServiceFactory.UserService.Create(newUser);
-                Logger.WriteFileLog("[INFO]", $"User: {forename} {surname} was Added.");
+                }
+                else
+                {
+                    handleValidationError(sender, "Active User (Yes or No)");
+                }
 
-                // Show that the new user has been added
-                MessageBox.Show(newUser.getString(), "New User Added");
+                // check DOB
+                try
+                {
+                    dob = DateTime.Parse(txtDateOfBirth.Text);
+                    dobChecked = true;
+                }
+                catch
+                {
+                    handleValidationError(sender, "Date of Birth must be in the format 'DD/MM/YY'");
+                }
+
+                // I googled this bit because I thought it would be fun
+                // declare regex
+                string normalChars = @"[^a-zA-Z0-9]";
+                Regex regex = new Regex(normalChars);
+
+                // check forename
+                if (!regex.IsMatch(txtForename.Text) && txtForename.Text.Length <= 25)
+                { // evaluates to true if special chars are present and the length of the string is less than 50 chars
+                    forename = txtForename.Text;
+                    forenameChecked = true;
+                }
+                else
+                {
+                    handleValidationError(sender, "Names cannot contain special characters or be longer than 25 characters");
+                }
+
+                // check surname
+                if (!regex.IsMatch(txtSurname.Text) && txtSurname.Text.Length <= 25)
+                { // evaluates to true if special chars are present and the length of the string is less than 50 chars
+                    surname = txtSurname.Text;
+                    surnameChecked = true;
+                }
+                else
+                {
+                    handleValidationError(sender, "Names cannot contain special characters  or be longer than 25 characters");
+                }
+
+                if (allFieldsComplete && isActiveChecked && dobChecked && forenameChecked && surnameChecked)
+                {
+                    // Instantiate newUser
+                    newUser.DateOfBirth = dob;
+                    newUser.Surname = surname;
+                    newUser.Forename = forename;
+                    newUser.IsActive = isActiveValue;
+              
+                    ServiceFactory.UserService.Create(newUser);
+
+                    // Show that the new user has been added
+                    MessageBox.Show(newUser.getString(), "New User Added");
+
+                    // Log user creation
+                    logger.Log("INFO", "New User has been Added.", newUser);
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Log("ERROR", ex.Message.ToString(), newUser);
             }
         }
 

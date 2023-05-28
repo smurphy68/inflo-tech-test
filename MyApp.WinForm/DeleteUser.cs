@@ -3,6 +3,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using MyApp.Services.Factories.Interfaces;
+using MyApp.Models;
 
 namespace MyApp.WinForm
 {
@@ -11,16 +12,19 @@ namespace MyApp.WinForm
         protected readonly int UserId;
         protected readonly Main Main;
         protected readonly IServiceFactory ServiceFactory;
-
+        protected readonly Logger logger;
+        protected readonly User user;
         bool userDeleted = false;
 
 
         // This form relies upon the 'Main', the DataAccess, and the UserId in order to work
-        public DeleteUser(Main main, IServiceFactory serviceFactory, int userId)
+        public DeleteUser(Main main, IServiceFactory serviceFactory, int userId, Logger logger)
         {
             UserId = userId;
             Main = main;
             ServiceFactory = serviceFactory;
+            this.logger = logger;
+            this.user = ServiceFactory.UserService.GetById(UserId);
 
             InitializeComponent();
         }
@@ -28,9 +32,6 @@ namespace MyApp.WinForm
         // Load the user for the display
         private void ViewUser_Load(object sender, System.EventArgs e)
         {
-            // Get the user by the ID
-            var user = ServiceFactory.UserService.GetById(UserId);
-
             if (user != null && userDeleted == false) // If we have a user then show their details
             {
                 lblForename.Text = user.Forename;
@@ -43,21 +44,18 @@ namespace MyApp.WinForm
         //A delete button to remove the entry
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            //Instantiate Logger
-            Logger Logger = new Logger(Main, ServiceFactory);
             try
             {
                 userDeleted = true;
-                var user = ServiceFactory.UserService.GetById(UserId);
                 ServiceFactory.UserService.Delete(user);
                 this.Close();
 
                 //Log if Successful
-                Logger.WriteFileLog("[INFO]", $"User ID {user.Id}: {user.Forename} {user.Surname} was Deleted.");
+                logger.Log("INFO", "User Deleted.", user);
 
             } catch (Exception ex)
             {
-                Logger.WriteFileLog("[ERROR]", ex.Message.ToString());
+                logger.Log("ERROR", ex.Message.ToString(), user);
             }
         }
 

@@ -16,6 +16,7 @@ namespace MyApp.WinForm
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Main relies upon the DataAccess in order to work
+
             Application.Run(new Main(new ServiceFactory()));
         }
     }

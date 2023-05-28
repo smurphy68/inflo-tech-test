@@ -13,8 +13,6 @@ namespace MyApp.Models
 
         public DateTime DateOfBirth { get; set; }
 
-        public List<string> DataLog { get; set; }
-
         public string getString ()
         {
             string _Forename = Forename.ToString();

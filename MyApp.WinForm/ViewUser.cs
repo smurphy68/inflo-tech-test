@@ -9,15 +9,18 @@ namespace MyApp.WinForm
         protected readonly int UserId;
         protected readonly Main Main;
         protected readonly IServiceFactory ServiceFactory;
+        protected readonly Logger logger;
 
         // This form relies upon the 'Main', the DataAccess, and the UserId in order to work
-        public ViewUser(Main main, IServiceFactory serviceFactory, int userId)
+        public ViewUser(Main main, IServiceFactory serviceFactory, int userId, Logger logger)
         {
             UserId = userId;
             Main = main;
             ServiceFactory = serviceFactory;
-
+            this.logger = logger;
+            
             InitializeComponent();
+
         }
 
         // Load the user for the display
@@ -37,13 +40,7 @@ namespace MyApp.WinForm
                 listLogMessages.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
 
                 // if there is any logged information, push it to the listview
-                if (user.DataLog != null)
-                {
-                    foreach (string item in user.DataLog)
-                    {
-                        listLogMessages.Items.Add(item);
-                    }
-                }
+                //TODO:
             }
         }
 
